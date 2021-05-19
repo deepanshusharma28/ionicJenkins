@@ -23,6 +23,7 @@ pipeline {
 
        stage('Android Build') {
           steps {
+               sh 'export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
                sh 'ionic cordova build android --release'
                
           }
