@@ -2,11 +2,12 @@ pipeline{
   agentanyenvironment{
     PATH='/usr/local/bin:/usr/bin:/bin'
   }stages{
-    stage('NPM Setup'){
-      steps{
+   //  stage('NPM Setup'){
+   //    steps{
         //sh'npm install'
-      }
-    }stage('IOS Build'){
+   //    }
+   //  }
+    stage('IOS Build'){
       steps{
         sh'ionic cordova build ios --release'
       }
