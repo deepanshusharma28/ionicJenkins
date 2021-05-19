@@ -8,6 +8,20 @@ pipeline {
 
     stages {
 
+      stage('Switch Node Version'){
+            steps{
+               sh 'sudo n 10.16.0'
+            }
+         }
+      stage('Copy static files from working project'){
+         steps{
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* .'
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* .'
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/package-json.xml .'
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/GoogleService-Info.plist .'
+         }
+      }
        stage('NPM Setup') {
           steps {
              sh 'npm install'
