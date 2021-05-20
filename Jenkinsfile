@@ -13,17 +13,21 @@ pipeline {
                sh 'n 10.16.0'
             }
          }
-       stage('NPM Setup') {
-          steps {
-             sh 'npm install'
-         }
-       }
+      //  stage('NPM Setup') {
+      //     steps {
+      //        sh 'npm install'
+      //    }
+      //  }
       stage('Copy static files from working project'){
          steps{
             sh 'rm -rf platforms && mkdir -p platforms'
             sh 'rm -rf plugins && mkdir -p plugins'
+            sh 'rm -rf resources && mkdir -p resources'
+            sh 'rm -rf node_modules && mkdir -p node_modules'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* ./platforms'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* ./plugins'
+            sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/resources/* ./resources'
+            sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/node_modules/* ./node_modules'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/package.json .'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/GoogleService-Info.plist .'
@@ -32,6 +36,7 @@ pipeline {
 
        stage('IOS Build') {
           steps {
+             sh 'npm install'
              sh 'ionic cordova build ios'
              
           }
