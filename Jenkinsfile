@@ -13,10 +13,13 @@ pipeline {
                sh 'n 10.16.0'
             }
          }
+       stage('NPM Setup') {
+          steps {
+             sh 'npm install'
+         }
+       }
       stage('Copy static files from working project'){
          steps{
-            sh 'mkdir platforms'
-            sh 'mkdir plugins'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* ./platforms'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* ./plugins'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
@@ -24,11 +27,6 @@ pipeline {
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/GoogleService-Info.plist .'
          }
       }
-       stage('NPM Setup') {
-          steps {
-             sh 'npm install'
-         }
-       }
 
        stage('IOS Build') {
           steps {
