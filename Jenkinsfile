@@ -36,7 +36,7 @@ pipeline {
 
        stage('IOS Build') {
           steps {
-             sh 'npm install'
+            //  sh 'npm install'
              sh 'ionic cordova build ios'
              
           }
