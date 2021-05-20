@@ -10,7 +10,7 @@ pipeline {
 
       stage('Switch Node Version'){
             steps{
-               sh 'sudo n 10.16.0'
+               sh 'n 10.16.0'
             }
          }
       stage('Copy static files from working project'){
