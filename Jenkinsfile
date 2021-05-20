@@ -32,19 +32,19 @@ pipeline {
 
        stage('IOS Build') {
           steps {
-             sh 'ionic cordova build ios --release'
+             sh 'ionic cordova build ios'
              
           }
        }
 
-       stage('Android Build') {
-          steps {
-               sh 'export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
-               sh 'echo $JAVA_HOME'
-               sh 'ionic cordova build android --release'
+      //  stage('Android Build') {
+      //     steps {
+      //          sh 'export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
+      //          sh 'echo $JAVA_HOME'
+      //          sh 'ionic cordova build android --release'
                
-          }
-       }
+      //     }
+      //  }
 
        stage('APK Sign') {
           steps {
