@@ -15,8 +15,10 @@ pipeline {
          }
       stage('Copy static files from working project'){
          steps{
-            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* .'
-            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* .'
+            sh 'mkdir platforms'
+            sh 'mkdir plugins'
+            sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* ./platforms'
+            sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* ./plugins'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/package-json.xml .'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/GoogleService-Info.plist .'
