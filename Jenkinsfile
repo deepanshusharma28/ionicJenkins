@@ -13,11 +13,11 @@ pipeline {
                sh 'n 10.16.0'
             }
          }
-      //  stage('NPM Setup') {
-      //     steps {
-      //        sh 'npm install'
-      //    }
-      //  }
+       stage('NPM Setup') {
+          steps {
+             sh 'npm install'
+         }
+       }
       stage('Copy static files from working project'){
          steps{
             sh 'rm -rf platforms && mkdir -p platforms'
