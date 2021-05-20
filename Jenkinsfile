@@ -15,6 +15,7 @@ pipeline {
          }
        stage('NPM Setup') {
           steps {
+            sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
              sh 'npm install'
          }
        }
