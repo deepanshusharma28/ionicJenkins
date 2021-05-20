@@ -20,6 +20,8 @@ pipeline {
        }
       stage('Copy static files from working project'){
          steps{
+            sh 'mkdir -p platforms'
+            sh 'mkdir -p plugins'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/platforms/* ./platforms'
             sh 'cp -a /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/plugins/* ./plugins'
             sh 'cp /Users/administrator/Documents/Projects/hero-projects/Employee_app_ios/employeeapp/config.xml .'
